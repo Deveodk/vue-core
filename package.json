@@ -1,7 +1,7 @@
 {
-  "name": "vue2_project_template",
+  "name": "vue-core",
   "version": "1.0.0",
-  "description": "A clean vue2 template with the Deveo structure and already implemented useful packages and methods for creating new projects",
+  "description": "A vue template with the Deveo vue-core structure and already implemented useful packages and methods for creating new projects",
   "author": "Deveodk",
   "private": true,
   "scripts": {
