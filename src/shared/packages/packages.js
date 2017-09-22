@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import VueMoment from 'vue-moment'
-import 'es6-promise/auto'
 import Raven from 'raven-js'
 import RavenVue from 'raven-js/plugins/vue'
 import VueToastr from '@deveodk/vue-toastr'
@@ -10,11 +8,18 @@ import '@deveodk/vue-toastr/dist/@deveodk/vue-toastr.css'
 import errorTracker from '@deveodk/vue-error-tracker'
 import vueSeo from '@deveodk/vue-seo'
 
+const API_URL = process.env.API_URL
+
+Vue.use(VueAxios, axios)
+axios.defaults.baseURL = API_URL + '/v1/'
+
+if (process.env.NODE_ENV !== 'development') {
 Raven
     .config(' --- ADD SENTRY DSN HERE --- ')
     .addPlugin(RavenVue, Vue)
     .install()
 Vue.prototype.$raven = Raven
+}
 
 Vue.use(vueSeo)
 
@@ -50,6 +55,3 @@ Vue.use(errorTracker, {
         }
     }
 })
-
-Vue.use(VueMoment)
-require('moment/locale/da')

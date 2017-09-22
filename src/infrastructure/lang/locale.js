@@ -2,8 +2,7 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 
 Vue.use(VueI18n)
-// const defaultLocale = process.env.DEFAULT_LOCALE
-const defaultLocale = 'da'
+const defaultLocale = process.env.DEFAULT_LOCALE
 
 let languages = {}
 
